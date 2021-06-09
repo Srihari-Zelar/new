@@ -33,7 +33,7 @@ Stat $?
 
 Head "Inside the workspace create a new directory /src"
 mkdir -p ~/go/src &>>$LOG
-cd -p ~/go/src/
+cd  ~/go/src/
 Stat $?
 
 Head "Lets clone the code from github repository"
@@ -44,8 +44,8 @@ Stat $?
 
 Head "Navigate** to the ~/go/src/login/login directory and run go build to build the program:"
 apt install go-dep &>>$LOG
-go get
-go build
+go get &>>$LOG
+go build &>>$LOG
 Stat $?
 
 #Head "Now, lets set up the service with systemctl."
