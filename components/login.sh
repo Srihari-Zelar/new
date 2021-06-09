@@ -8,7 +8,7 @@ DOMAIN=ksrihari.online
 OS_PREREQ
 
 Head " Adding User"
-rm -rf app
+deluser app
 useradd -m -s /bin/bash app &>>$LOG
 Stat $?
 
