@@ -28,9 +28,9 @@ Head "Save the file, and load the new PATH environment variable into the current
 source ~/.profile
 Stat $?
 
-Head "By default, the GOPATH variable, which specifies the location of the workspace is set to $HOME/go. To create the workspace directory type:"
-mkdir ~/go &>>$LOG
-Stat $?
+#Head "By default, the GOPATH variable, which specifies the location of the workspace is set to $HOME/go. To create the workspace directory type:"
+#mkdir ~/go &>>$LOG
+#Stat $?
 
 Head "Inside the workspace create a new directory /src"
 mkdir -p ~/go/src &>>$LOG
