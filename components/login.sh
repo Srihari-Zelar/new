@@ -28,10 +28,6 @@ Head "Save the file, and load the new PATH environment variable into the current
 source ~/.profile
 Stat $?
 
-#Head "By default, the GOPATH variable, which specifies the location of the workspace is set to $HOME/go. To create the workspace directory type:"
-#mkdir ~/go &>>$LOG
-#Stat $?
-
 Head "Inside the workspace create a new directory /src"
 mkdir -p ~/go/src &>>$LOG
 cd  ~/go/src/
@@ -49,8 +45,5 @@ go get &>>$LOG
 go build &>>$LOG
 Stat $?
 
-#Head "Now, lets set up the service with systemctl."
-#vim /etc/systemd/system/login.service
-#systemctl daemon-reload
-#systemctl start login.service
-#systemctl enable login.service
+Head "Now, lets set up the service with systemctl."
+mv login.service /etc/systemd/system/login.service
