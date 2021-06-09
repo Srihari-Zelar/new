@@ -36,7 +36,7 @@ npm install --save-dev  --unsafe-perm node-sass &>>$LOG
 Stat $?
 
 Head "------------------------------"
-sed -i'32 s/127.0.0.1/login.$DOMAIN/g' /var/www/html/app/frontend/config/index.js
+sed -i '32 s/127.0.0.1/login.$DOMAIN/g' /var/www/html/app/frontend/config/index.js
 Stat $?
 
 Head "Starting NPM"
