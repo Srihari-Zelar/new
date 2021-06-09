@@ -36,8 +36,8 @@ npm install --save-dev  --unsafe-perm node-sass &>>$LOG
 Stat $?
 
 Head "------------------------------"
-#sed -i 's|127.0.0.1:8080|login.$DOMAIN:8080|g' /var/www/html/app/frontend/config/index.js
-#sed -i 's|127.0.0.1:8080|todo.$DOMAIN:8080|g' /var/www/html/app/frontend/config/index.js
+grep -rl "process.env.AUTH_API_ADDRESS ||
+'http://127.0.0.1:8080'" . | xargs sed -i 's/process.env.AUTH_API_ADDRESS ||'http://127.0.0.1:8080'/process.env.AUTH_API_ADDRESS ||'http://login.$DOMAIN:8080'/g'
 Stat $?
 
 Head "Starting NPM"
