@@ -14,11 +14,10 @@ Stat $?
 Head "User adding"
 deluser app
 useradd -m -s /bin/bash app &>>$LOG
-Stat $?
-
 cd /home/app/
 Stat $?
 
+rm -rf todo
 DOWNLOAD_COMPONENT
 Stat $?
 
