@@ -12,7 +12,7 @@ deluser app
 useradd -m -s /bin/bash app &>>$LOG
 Stat $?
 
-Head " Changing directory to todo"
+Head " Changing directory to app"
 cd /home/app/
 Stat $?
 
