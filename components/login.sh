@@ -49,3 +49,4 @@ Head "Now, lets set up the service with systemctl."
 mkdir /home/app/login
 mv systemd.service /home/app/login/systemd.service
 sed -i -e "s/user_endpoint/users.${DOMAIN}/" /home/app/login/systemd.service
+Stat $?
