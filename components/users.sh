@@ -5,6 +5,7 @@ source components/common.sh
 OS_PREREQ
 
 Head "User adding"
+deluser app
 useradd -m -s /bin/bash app &>>$LOG
 
 cd /home/app/
