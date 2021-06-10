@@ -9,15 +9,20 @@ OS_PREREQ
 
 Head "Installing npm"
 apt install npm -y &>>$LOG
+Stat $?
 
 Head "User adding"
+deluser app
 useradd -m -s /bin/bash app &>>$LOG
 
 cd /home/app/
+Stat $?
 
 DOWNLOAD_COMPONENT
 
 cd todo/
+Stat $?
 
 Head "installing npm in todo"
 npm install -y &>>$LOG
+Stat $?
