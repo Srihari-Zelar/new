@@ -13,6 +13,7 @@ Stat $?
 
 Head "Downloading component"
 DOWNLOAD_COMPONENT
+Stat $?
 
 apt update  &>>$LOG
 Stat $?
