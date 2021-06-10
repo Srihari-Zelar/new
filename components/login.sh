@@ -46,4 +46,4 @@ go build &>>$LOG
 Stat $?
 
 Head "Now, lets set up the service with systemctl."
-mv login.service /etc/systemd/system/login.service
+sed -i -e "s/user_endpoint/users.${DOMAIN}/" /home/ubuntu/login/systemd.service
