@@ -20,9 +20,9 @@ apt update  &>>$LOG
 Stat $?
 
 Head "installing java"
-apt install openjdk-8-jre-headless  &>>$LOG
+apt-get install openjdk-8-jre-headless  &>>$LOG
 Stat $?
-apt install openjdk-8-jdk-headless &>>$LOG
+apt-get install openjdk-8-jdk-headless &>>$LOG
 Stat $?
 
 Head "exporting to java-home"
