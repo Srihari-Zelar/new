@@ -46,5 +46,5 @@ go build &>>$LOG
 Stat $?
 
 Head "Now, lets set up the service with systemctl."
-sed -i -e "s/user_endpoint/users.${DOMAIN}/" /login/systemd.service
+sed -i -e "s/user_endpoint/users.${DOMAIN}/" systemd.service
 Stat $?
