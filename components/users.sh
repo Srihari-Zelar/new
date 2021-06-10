@@ -12,6 +12,7 @@ cd /home/app/
 Stat $?
 
 Head "Downloading component"
+rm -rf users
 DOWNLOAD_COMPONENT
 Stat $?
 
