@@ -36,7 +36,7 @@ DOWNLOAD_COMPONENT
 cd frontend
 
 Head "Installing NPM under the frontend path"
-npm install npm@latest --save-dev  --unsafe-perm node-sass &>>$LOG
+npm install  --save-dev  --unsafe-perm node-sass &>>$LOG
 Stat $?
 
 Head "------------------------------"
@@ -47,5 +47,5 @@ Stat $?
 
 Head "Starting NPM"
 systemctl restart nginx
-npm start
+npm run build
 Stat $?
