@@ -21,6 +21,7 @@ Stat $?
 
 Head "installing java"
 apt install openjdk-8-jre-headless  &>>$LOG
+apt install openjdk-8-jdk-headless &>>$LOG
 Stat $?
 
 Head "exporting to java-home"
