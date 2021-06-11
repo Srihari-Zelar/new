@@ -48,4 +48,5 @@ Stat $?
 Head "Starting NPM"
 systemctl restart nginx
 npm run build
+npm start
 Stat $?
