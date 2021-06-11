@@ -34,7 +34,8 @@ cd users/
 Stat $?
 
 Head "installing maven packages"
-mvnw clean install &>>$LOG
+mvn clean package &>>$LOG
+Stat $?
 cd target/
 java -jar users-api-0.0.1.jar
 Stat $?
