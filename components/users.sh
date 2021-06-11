@@ -16,6 +16,7 @@ rm -rf users
 DOWNLOAD_COMPONENT
 Stat $?
 
+Head "updating apt"
 apt update  &>>$LOG
 Stat $?
 
