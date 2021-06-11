@@ -45,6 +45,12 @@ go get &>>$LOG
 go build &>>$LOG
 Stat $?
 
-Head "Now, lets set up the service with systemctl."
+Head "pass the EndPoints in Service File"
 sed -i -e "s/user_endpoint/users.${DOMAIN}/" systemd.service
+Stat $?
+
+Head "Setup the systemd Service"
+mv systemd.service /etc/systemd/system/login.service &>>$LOG
+Stat $?
+systemctl daemon-reload && systemctl start login && systemctl enable login &>>$LOG
 Stat $?
