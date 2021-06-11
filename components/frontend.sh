@@ -16,6 +16,10 @@ systemctl start nginx
 systemctl enable nginx
 Stat $?
 
+Head "Installing npm and nodejs"
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - &>>$LOG
+sudo apt-get install nodejs -y &>>$LOG
+
 Head "Installing NPM"
 apt install npm -y &>>$LOG
 Stat $?
