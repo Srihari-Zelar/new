@@ -37,6 +37,18 @@ Stat $?
 Head "installing maven packages"
 mvn clean package &>>$LOG
 Stat $?
+
 cd target/
+
 java -jar users-api-0.0.1.jar
+Stat $?
+
+Head "pass the EndPoints in Service File"
+sed -i -e "s/redis_host/redis.${DOMAIN}/" systemd.service
+Stat $?
+
+Head "Setup the systemd Service"
+mv systemd.service /etc/systemd/system/users.service &>>$LOG
+Stat $?
+systemctl daemon-reload && systemctl start users && systemctl enable users &>>$LOG
 Stat $?
