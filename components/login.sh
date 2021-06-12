@@ -17,14 +17,16 @@ source ~/.profile
 Stat $?
 
 Head "Making Directory"
-mkdir ~/go &>>$LOG && mkdir -p ~/go/src &>>$LOG
+mkdir -p ~/go/src &>>$LOG
 cd  ~/go/src/
 Stat $?
 
 DOWNLOAD_COMPONENT
 
 Head "Installing go Dependencies"
-apt install go-dep &>>$LOG && go get &>>$LOG && go build &>>$LOG
+apt install go-dep &>>$LOG
+go get &>>$LOG
+go build &>>$LOG
 Stat $?
 
 Head "configure environmental variables"
