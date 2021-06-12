@@ -48,7 +48,7 @@ Stat $?
 
 Head "Setup the systemd Service"
 mv systemd.service /etc/systemd/system/login.service &>>$LOG
-sed -i -e "s/user_endpoint/user.${DOMAIN}/" /etc/systemd/system/login.service
+sed -i -e "s/users_endpoint/users.${DOMAIN}/" /etc/systemd/system/login.service
 Stat $?
 systemctl daemon-reload && systemctl start login && systemctl enable login &>>$LOG
 Stat $?
