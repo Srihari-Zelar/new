@@ -24,8 +24,8 @@ Stat $?
 DOWNLOAD_COMPONENT
 
 Head "Installing go Dependencies"
-apt install go-dep &>>$LOG
-go get &>>$LOG
+#apt install go-dep &>>$LOG
+#go get &>>$LOG
 go build &>>$LOG
 Stat $?
 
