@@ -11,9 +11,7 @@ Head "Installing go"
 wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local &>>$LOG
 #apt install golang -y &>>$LOG
 go version
-~/.profile
 export PATH=$PATH:/usr/local/go/bin
-source ~/.profile
 Stat $?
 
 Head "Making Directory"
@@ -24,8 +22,8 @@ Stat $?
 DOWNLOAD_COMPONENT
 
 Head "Installing go Dependencies"
-#apt install go-dep &>>$LOG
-#go get &>>$LOG
+apt-get install go-dep &>>$LOG
+go get &>>$LOG
 go build &>>$LOG
 Stat $?
 
