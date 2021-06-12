@@ -2,53 +2,37 @@
 
 source components/common.sh
 
-#Used export instead of service file
-DOMAIN=ksrihari.online
+# #Used export instead of service file
+# DOMAIN=zsdevops.online
 
 OS_PREREQ
 
-Head " Adding User"
-deluser app
-useradd -m -s /bin/bash app &>>$LOG
-Stat $?
-
-Head " Changing directory to app"
-cd /home/app/
-Stat $?
-
-Head "Run the following command as a user with sudo privileges to download and extract the Go binary archive in the /usr/local directory:"
+Head "Installing go"
 wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local &>>$LOG
 apt install golang -y &>>$LOG
-Stat $?
-
-Head "Adjusting the Path Variable"
+go version
+~/.profile
 export PATH=$PATH:/usr/local/go/bin
-Stat $?
-
-Head "Save the file, and load the new PATH environment variable into the current shell session:"
 source ~/.profile
 Stat $?
 
-Head "Inside the workspace create a new directory /src"
-mkdir -p ~/go/src &>>$LOG
+Head "Making Directory"
+mkdir ~/go &>>$LOG && mkdir -p ~/go/src &>>$LOG
 cd  ~/go/src/
 Stat $?
 
-Head "Lets clone the code from github repository"
 DOWNLOAD_COMPONENT
-cd login/
-apt update
+
+Head "Installing go Dependencies"
+apt install go-dep &>>$LOG && go get &>>$LOG && go build &>>$LOG
 Stat $?
 
-Head "Navigate** to the ~/go/src/login/login directory and run go build to build the program:"
-apt install go-dep &>>$LOG
-go get &>>$LOG
-go build &>>$LOG
+Head "configure environmental variables"
+# export AUTH_API_PORT=8080
+# export USERS_API_ADDRESS=http://users.$DOMAIN:8080
+sed -i -e "s/LOGIN_ENDPOINT/8080/g" -e "s/USERS_ENDPOINT/users.ksrihari.online/g" /root/go/src/login/systemd.service
 Stat $?
 
-Head "Setup the systemd Service"
-mv systemd.service /etc/systemd/system/login.service &>>$LOG
-sed -i -e "s/login_endpoint/8080/g" -e "s/users_endpoint/users.${DOMAIN}/g"  /etc/systemd/system/login.service
-Stat $?
-systemctl daemon-reload && systemctl start login && systemctl enable login &>>$LOG
+Head "Setup SystemD Service"
+mv /root/go/src/login/systemd.service /etc/systemd/system/login.service && systemctl daemon-reload && systemctl start login && systemctl enable login &>>$LOG
 Stat $?
