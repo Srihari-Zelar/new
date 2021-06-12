@@ -18,6 +18,7 @@ Stat $?
 
 Head "Run the following command as a user with sudo privileges to download and extract the Go binary archive in the /usr/local directory:"
 wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local &>>$LOG
+apt install golang -y &>>$LOG
 Stat $?
 
 Head "Adjusting the Path Variable"
